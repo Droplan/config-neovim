@@ -10,10 +10,20 @@ end
 
 local packer = require 'packer'
 packer.init {
-	compile_path = fn.stdpath('data')..'/packer_compiled.lua'
+	compile_path = fn.stdpath('data')..'/packer_compiled.lua',
 }
 local use = packer.use
 
 -- Packer manager itself
-use 'wbthomason/packer.nvim'
+use {'wbthomason/packer.nvim'}
 
+-- LSP
+use {
+	'neovim/nvim-lspconfig',
+}
+use {
+	'williamboman/mason.nvim',
+}
+use {
+	'williamboman/mason-lspconfig.nvim',
+}
