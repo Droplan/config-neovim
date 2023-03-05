@@ -47,7 +47,7 @@ o.clipboard = 'unnamedplus'
 -- Говорит NeoVim, что клавиша <Leader> это пробел
 g.mapleader = ' '
 -- Кодировка файлов
-o.encodin = 'utf-8'
+o.encoding = 'utf-8'
 -- Подсветка строки с курсором
 o.cursorline = true 
 
