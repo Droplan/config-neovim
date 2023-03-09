@@ -26,7 +26,7 @@ o.modeline = true
 o.mouse = 'a'
 o.mousemodel = 'extend'
 vim.keymap.set('', '<C-LeftMouse>', '<Nop>')
--- Показывает номер текущей страки, остальные строки нумерует относительно текущей
+-- Показывает номер текущей строки, остальные строки нумерует относительно текущей
 o.number = true
 o.relativenumber = true
 -- Устанавливает 1 таб равным 4 пробела
@@ -51,6 +51,25 @@ o.encoding = 'utf-8'
 -- Подсветка строки с курсором
 o.cursorline = true
 
+-- Options from kickstart.nvim
+-- Enable break indent
+o.breakindent = true
+
+-- Keep signcolumn on by default
+o.signcolumn = 'yes'
+
+-- Decrease update time
+o.updatetime = 250
+o.timeout = true
+o.timeoutlen = 300
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
+
+-- NOTE: You should make sure your terminal supports this
+vim.o.termguicolors = true
+-- End options from kickstart.nvim
+
 -- Включить подсветку поиска во время поиска и отключить её впоследствии
 vim.cmd [[ augroup VimIncsearchHl ]]
 vim.cmd [[ autocmd! ]]
@@ -59,12 +78,15 @@ vim.cmd [[ autocmd CmdlineLeave [/\?] set nohlsearch ]]
 vim.cmd [[ augroup END ]]
 
 -- Подсветить на доли секунды скопированную часть текста
-vim.api.nvim_exec([[
-augroup YankHighlight
-autocmd!
-autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=300}
-augroup end
-]], false)
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
 
 -- Не автокомментировать новые линии при переходе на новую строку
 vim.cmd [[autocmd BufEnter * set fo-=c fo-=r fo-=o]]
