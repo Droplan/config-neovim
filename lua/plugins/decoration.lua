@@ -1,7 +1,4 @@
 return {
-	-- Useful plugin to show you pending keybinds.
-	{ 'folke/which-key.nvim',  opts = {} },
-
 	{
 		-- Theme inspired by Atom
 		'navarasu/onedark.nvim',
@@ -19,7 +16,5 @@ return {
 			show_trailing_blankline_indent = false,
 		},
 	},
-
-	-- "gc" to comment visual regions/lines
-	{ 'numToStr/Comment.nvim', opts = {} },
 }
+
