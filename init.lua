@@ -1,5 +1,5 @@
-require('lua/basic_options')
-require('lua/mappings')
+require('basic_options')
+require('mappings')
 
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
