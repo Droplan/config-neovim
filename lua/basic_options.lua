@@ -43,7 +43,7 @@ o.title = true
 -- Включить постоянную отмену
 o.undofile = true
 -- Использует системный буфер обмена
-o.clipboard = 'unnamedplus'
+-- o.clipboard = 'unnamedplus'
 -- Говорит NeoVim, что клавиша <Leader> это пробел
 g.mapleader = ' '
 -- Кодировка файлов
@@ -51,7 +51,6 @@ o.encoding = 'utf-8'
 -- Подсветка строки с курсором
 o.cursorline = true
 
--- Options from kickstart.nvim
 -- Enable break indent
 o.breakindent = true
 
@@ -63,12 +62,8 @@ o.updatetime = 250
 o.timeout = true
 o.timeoutlen = 300
 
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
-
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
--- End options from kickstart.nvim
 
 -- Включить подсветку поиска во время поиска и отключить её впоследствии
 vim.cmd [[ augroup VimIncsearchHl ]]

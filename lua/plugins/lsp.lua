@@ -106,7 +106,12 @@ return {
 			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 			{
 				'j-hui/fidget.nvim',
-				config = function() require('fidget').setup {} end
+				tag = "legacy",
+				event = "LspAttach",
+				config = function()
+					require('fidget').setup {
+				}
+				end,
 			},
 
 			-- Additional lua configuration, makes nvim stuff amazing!
