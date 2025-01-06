@@ -52,7 +52,7 @@ local function setup_lsp()
 	local servers = {
 		cssls = {},
 		emmet_ls = {},
-		tsserver = {},
+		ts_ls = {},
 		html = {},
 
 		lua_ls = {
